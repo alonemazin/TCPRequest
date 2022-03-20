@@ -1,0 +1,12 @@
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\bin\Debug\net6.0\TCPRequest.deps.json
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\bin\Debug\net6.0\TCPRequest.dll
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\bin\Debug\net6.0\TCPRequest.pdb
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\obj\Debug\net6.0\TCPRequest.csproj.AssemblyReference.cache
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\obj\Debug\net6.0\TCPRequest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\obj\Debug\net6.0\TCPRequest.AssemblyInfoInputs.cache
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\obj\Debug\net6.0\TCPRequest.AssemblyInfo.cs
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\obj\Debug\net6.0\TCPRequest.csproj.CoreCompileInputs.cache
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\obj\Debug\net6.0\TCPRequest.dll
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\obj\Debug\net6.0\refint\TCPRequest.dll
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\obj\Debug\net6.0\TCPRequest.pdb
+C:\Users\Await\source\repos\TCPRequest\TCPRequest\obj\Debug\net6.0\ref\TCPRequest.dll
