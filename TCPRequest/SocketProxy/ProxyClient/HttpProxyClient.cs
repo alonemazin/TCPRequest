@@ -22,7 +22,7 @@ namespace SocketProxy.Proxy
     /// </summary>
     public class HttpProxyClient : IProxyClient
     {
-        private int _TimeoutInSeconds = 10;
+        private int _TimeoutInSeconds = 40;
         private string _proxyHost;
         private int _proxyPort;
         private string _proxyUsername;
@@ -38,7 +38,7 @@ namespace SocketProxy.Proxy
         private const string HTTP_PROXY_AUTHENTICATE_CMD = "CONNECT {0}:{1} HTTP/{3}\r\nHOST {0}:{1}\r\nProxy-Authorization: Basic {2}\r\n\r\n";
 
         private const int WAIT_FOR_DATA_INTERVAL = 50; // 50 ms
-        private const int WAIT_FOR_DATA_TIMEOUT = 5000; // 5 seconds
+        private const int WAIT_FOR_DATA_TIMEOUT = 10000; // 10 seconds
         private const string PROXY_NAME = "HTTP";
 
         /// <summary>

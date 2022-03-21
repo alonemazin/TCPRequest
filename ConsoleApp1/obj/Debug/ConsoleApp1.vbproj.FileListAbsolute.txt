@@ -1,0 +1,15 @@
+E:\github\TCPRequest\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+E:\github\TCPRequest\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+E:\github\TCPRequest\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+E:\github\TCPRequest\ConsoleApp1\bin\Debug\ConsoleApp1.xml
+E:\github\TCPRequest\ConsoleApp1\bin\Debug\TCPRequest.dll
+E:\github\TCPRequest\ConsoleApp1\bin\Debug\TCPRequest.pdb
+E:\github\TCPRequest\ConsoleApp1\obj\Debug\ConsoleApp1.vbproj.AssemblyReference.cache
+E:\github\TCPRequest\ConsoleApp1\obj\Debug\ConsoleApp1.vbproj.SuggestedBindingRedirects.cache
+E:\github\TCPRequest\ConsoleApp1\obj\Debug\ConsoleApp1.Resources.resources
+E:\github\TCPRequest\ConsoleApp1\obj\Debug\ConsoleApp1.vbproj.GenerateResource.cache
+E:\github\TCPRequest\ConsoleApp1\obj\Debug\ConsoleApp1.vbproj.CoreCompileInputs.cache
+E:\github\TCPRequest\ConsoleApp1\obj\Debug\ConsoleApp1.vbproj.CopyComplete
+E:\github\TCPRequest\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+E:\github\TCPRequest\ConsoleApp1\obj\Debug\ConsoleApp1.xml
+E:\github\TCPRequest\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

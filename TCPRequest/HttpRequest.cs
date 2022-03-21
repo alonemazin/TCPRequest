@@ -8,7 +8,7 @@ namespace TCPRequest
 {
     public static class Proxy
     {
-        public static HttpProxyClient HttpsProxy(string Proxy, string Username = "", string Password = "")
+        public static IProxyClient HttpsProxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"https://{Proxy}");
             if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
@@ -21,7 +21,7 @@ namespace TCPRequest
             }
         }
 
-        public static HttpProxyClient Socks4Proxy(string Proxy, string Username = "", string Password = "")
+        public static IProxyClient Socks4Proxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"Socks4a://{Proxy}");
             if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
@@ -33,7 +33,7 @@ namespace TCPRequest
                 return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
             }
         }
-        public static HttpProxyClient Socks4aProxy(string Proxy, string Username = "", string Password = "")
+        public static IProxyClient Socks4aProxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"Socks4://{Proxy}");
             if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
@@ -46,7 +46,7 @@ namespace TCPRequest
             }
         }
 
-        public static HttpProxyClient Socks5Proxy(string Proxy, string Username = "", string Password = "")
+        public static IProxyClient Socks5Proxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"Socks5://{Proxy}");
             if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
@@ -77,7 +77,7 @@ namespace TCPRequest
             return CreateRequest("POST", URL, Headers, Body, Proxy);
         }
 
-        public string Get(string URL, Headers Headers = null, HttpProxyClient Proxy = null)
+        public string Get(string URL, Headers Headers = null, IProxyClient Proxy = null)
         {
             if (string.IsNullOrWhiteSpace(URL))
             {
@@ -86,7 +86,7 @@ namespace TCPRequest
             return CreateRequest("GET", URL, Headers, null, Proxy);
         }
 
-        private string CreateRequest(string Method, string URL, Headers Headers = null, string Body= "", HttpProxyClient Proxy = null)
+        private string CreateRequest(string Method, string URL, Headers Headers = null, string Body= "", IProxyClient Proxy = null)
         {
             System.Net.ServicePointManager.SecurityProtocol = (SecurityProtocolType)(3072 | 768 | 192);
 
