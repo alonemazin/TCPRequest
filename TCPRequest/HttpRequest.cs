@@ -1,4 +1,4 @@
-﻿using System.Net.Security;
+using System.Net.Security;
 using System.Net.Sockets;
 using System.Text;
 using System.Net;
@@ -8,27 +8,55 @@ namespace TCPRequest
 {
     public static class Proxy
     {
-        public static HttpProxyClient HttpsProxy(string Proxy)
+        public static HttpProxyClient HttpsProxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"https://{Proxy}");
-            return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+            if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
+            {
+                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
+            }
+            else
+            {
+                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+            }
         }
 
-        public static HttpProxyClient Socks4Proxy(string Proxy)
+        public static HttpProxyClient Socks4Proxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"Socks4a://{Proxy}");
-            return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+            if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
+            {
+                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
+            }
+            else
+            {
+                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+            }
         }
-        public static HttpProxyClient Socks4aProxy(string Proxy)
+        public static HttpProxyClient Socks4aProxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"Socks4://{Proxy}");
-            return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+            if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
+            {
+                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
+            }
+            else
+            {
+                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+            }
         }
 
-        public static HttpProxyClient Socks5Proxy(string Proxy)
+        public static HttpProxyClient Socks5Proxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"Socks5://{Proxy}");
-            return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+            if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
+            {
+                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
+            }
+            else
+            {
+                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+            }
         }
     }
     public class HttpRequest
