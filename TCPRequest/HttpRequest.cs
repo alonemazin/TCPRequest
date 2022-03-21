@@ -179,7 +179,7 @@ namespace TCPRequest
         public string Referer = String.Empty;
         public string Origin = String.Empty;
         public string AcceptLanguage = "en-US,en;";
-        public string AcceptEncoding = "gzip, deflate, br";
+        public string AcceptEncoding = "identify";
         private string[] BlockedHeaders = { "content-type", "user-agent","accept","referer","origin","accept-language","acceptencoding" };
         public void Add(string Name, string Value)
         {
