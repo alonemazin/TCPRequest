@@ -21,41 +21,27 @@ namespace TCPRequest
             }
         }
 
-        public static HttpProxyClient Socks4Proxy(string Proxy, string Username = "", string Password = "")
+        public static Socks4ProxyClient Socks4Proxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"Socks4a://{Proxy}");
-            if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
-            {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
-            }
-            else
-            {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
-            }
+            return new Socks4ProxyClient(URIproxy.Host, URIproxy.Port);
         }
-        public static HttpProxyClient Socks4aProxy(string Proxy, string Username = "", string Password = "")
+        public static Socks4aProxyClient Socks4aProxy(string Proxy)
         {
             Uri URIproxy = new Uri($"Socks4://{Proxy}");
-            if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
-            {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
-            }
-            else
-            {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
-            }
+            return new Socks4aProxyClient(URIproxy.Host, URIproxy.Port);
         }
 
-        public static HttpProxyClient Socks5Proxy(string Proxy, string Username = "", string Password = "")
+        public static Socks5ProxyClient Socks5Proxy(string Proxy, string Username = "", string Password = "")
         {
             Uri URIproxy = new Uri($"Socks5://{Proxy}");
             if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
             {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
+                return new Socks5ProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
             }
             else
             {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+                return new Socks5ProxyClient(URIproxy.Host, URIproxy.Port);
             }
         }
     }
@@ -86,7 +72,7 @@ namespace TCPRequest
             return CreateRequest("GET", URL, Headers, null, Proxy);
         }
 
-        private string CreateRequest(string Method, string URL, Headers Headers = null, string Body= "", HttpProxyClient Proxy = null)
+        private string CreateRequest(string Method, string URL, Headers Headers = null, string Body= "", IProxyClient Proxy = null)
         {
             System.Net.ServicePointManager.SecurityProtocol = (SecurityProtocolType)(3072 | 768 | 192);
 

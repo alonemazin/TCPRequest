@@ -22,7 +22,7 @@ namespace SocketProxy.Proxy
     /// </summary>
     public class HttpProxyClient : IProxyClient
     {
-        private int _TimeoutInSeconds = 10;
+        private int _TimeoutInSeconds = 40;
         private string _proxyHost;
         private int _proxyPort;
         private string _proxyUsername;
