@@ -21,7 +21,7 @@ TCPRequest.Headers headers = new TCPRequest.Headers();
 headers.Accept = "*/*";
 headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36";
 headers.ContentType = "application/json";
-string response = request.Get("https://myexternalip.com/raw", headers);
+string response = request.Get("https://alonemazin.online/", headers);
 ```
 
 How to make POST in C#
@@ -31,7 +31,7 @@ TCPRequest.Headers headers = new TCPRequest.Headers();
 headers.Accept = "*/*";
 headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36";
 headers.ContentType = "application/json";
-string response = request.Post("https://jsonplaceholder.typicode.com/posts", headers, "{\"title\": \"foo\", \"body\": \"bar\", \"userId\": 1}");
+string response = request.Post("https://alonemazin.online/", headers, data);
 ```
 
 How to make GET in VB.net
@@ -41,7 +41,7 @@ Dim headers As TCPRequest.Headers = New TCPRequest.Headers()
 headers.Accept = "*/*"
 headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36"
 headers.ContentType = "application/json"
-Dim response As String = request.[Get]("https://myexternalip.com/raw", headers)
+Dim response As String = request.[Get]("https://alonemazin.online/", headers)
 ```
 
 How to make POST in VB.net
@@ -51,10 +51,9 @@ Dim headers As TCPRequest.Headers = New TCPRequest.Headers()
 headers.Accept = "*/*"
 headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36"
 headers.ContentType = "application/json"
-Dim response As String = request.Post("https://jsonplaceholder.typicode.com/posts", headers, "{""title"": ""foo"", ""body"": ""bar"", ""userId"": 1}")
+Dim response As String = request.Post("https://alonemazin.online/", headers, data)
 ```
-
-Use Proxies in requests
+Use Proxies in POST requests
 ```csharp
 TCPRequest.HttpRequest request = new TCPRequest.HttpRequest();
 TCPRequest.Headers headers = new TCPRequest.Headers();
@@ -63,16 +62,57 @@ headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36";
 headers.ContentType = "application/json";
 
 // Https
-string response = request.Get("https://myexternalip.com/raw", headers, TCPRequest.Proxy.HttpsProxy("ip:port"));
+string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.HttpsProxy("ip:port"));
 
 // Socks4
-string response = request.Get("https://myexternalip.com/raw", headers, TCPRequest.Proxy.Socks4Proxy("ip:port"));
+string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.Socks4Proxy("ip:port"));
 
 // Socks4a
-string response = request.Get("https://myexternalip.com/raw", headers, TCPRequest.Proxy.Socks4aProxy("ip:port"));
+string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.Socks4aProxy("ip:port"));
 
 // Socks5
-string response = request.Get("https://myexternalip.com/raw", headers, TCPRequest.Proxy.Socks5Proxy("ip:port"));
+string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.Socks5Proxy("ip:port"));
+```
+
+Use Proxies in GET requests
+```csharp
+TCPRequest.HttpRequest request = new TCPRequest.HttpRequest();
+TCPRequest.Headers headers = new TCPRequest.Headers();
+headers.Accept = "*/*";
+headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36";
+headers.ContentType = "application/json";
+
+// Https
+string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.HttpsProxy("ip:port"));
+
+// Socks4
+string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.Socks4Proxy("ip:port"));
+
+// Socks4a
+string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.Socks4aProxy("ip:port"));
+
+// Socks5
+string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.Socks5Proxy("ip:port"));
+```
+How To Add Headers C#
+```csharp
+TCPRequest.HttpRequest request = new TCPRequest.HttpRequest();
+TCPRequest.Headers headers = new TCPRequest.Headers();
+headers.Accept = "*/*";
+headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36";
+headers.ContentType = "application/json";
+headers.add("name" , "value");
+string response = request.Post("https://alonemazin.online/", headers, data);
+```
+How To Add Headers VB.net
+```csharp
+TCPRequest.HttpRequest request = new TCPRequest.HttpRequest()
+TCPRequest.Headers headers = new TCPRequest.Headers()
+headers.Accept = "*/*"
+headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36"
+headers.ContentType = "application/json"
+headers.add("name" , "value")
+string response = request.Post("https://alonemazin.online/", headers, data)
 ```
 ## FAQ
 
