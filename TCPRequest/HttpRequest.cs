@@ -54,7 +54,7 @@ namespace TCPRequest
         public bool KeepAlive = false;
         public bool NoDelay = true;
 
-        public string Post(string URL, Headers Headers = null, string Body = "", HttpProxyClient Proxy = null)
+        public string Post(string URL, Headers Headers = null, string Body = "", IProxyClient Proxy = null)
         {
             if (string.IsNullOrWhiteSpace(URL))
             {
@@ -63,7 +63,7 @@ namespace TCPRequest
             return CreateRequest("POST", URL, Headers, Body, Proxy);
         }
 
-        public string Get(string URL, Headers Headers = null, HttpProxyClient Proxy = null)
+        public string Get(string URL, Headers Headers = null, IProxyClient Proxy = null)
         {
             if (string.IsNullOrWhiteSpace(URL))
             {
