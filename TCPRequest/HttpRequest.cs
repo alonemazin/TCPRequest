@@ -21,41 +21,27 @@ namespace TCPRequest
             }
         }
 
-        public static IProxyClient Socks4Proxy(string Proxy, string Username = "", string Password = "")
+        public static IProxyClient Socks4aProxy(string Proxy)
         {
-            Uri URIproxy = new Uri($"Socks4a://{Proxy}");
-            if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
-            {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
-            }
-            else
-            {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
-            }
+            Uri URIproxy = new Uri($"socks4a://{Proxy}");
+            return new Socks4aProxyClient(URIproxy.Host, URIproxy.Port);
         }
-        public static IProxyClient Socks4aProxy(string Proxy, string Username = "", string Password = "")
+        public static IProxyClient Socks4Proxy(string Proxy)
         {
-            Uri URIproxy = new Uri($"Socks4://{Proxy}");
-            if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
-            {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
-            }
-            else
-            {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
-            }
+            Uri URIproxy = new Uri($"socks4://{Proxy}");
+            return new Socks4ProxyClient(URIproxy.Host, URIproxy.Port);
         }
 
         public static IProxyClient Socks5Proxy(string Proxy, string Username = "", string Password = "")
         {
-            Uri URIproxy = new Uri($"Socks5://{Proxy}");
+            Uri URIproxy = new Uri($"socks5://{Proxy}");
             if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
             {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
+                return new Socks5ProxyClient(URIproxy.Host, URIproxy.Port, Username, Password);
             }
             else
             {
-                return new HttpProxyClient(URIproxy.Host, URIproxy.Port);
+                return new Socks5ProxyClient(URIproxy.Host, URIproxy.Port);
             }
         }
     }
@@ -68,7 +54,7 @@ namespace TCPRequest
         public bool KeepAlive = false;
         public bool NoDelay = true;
 
-        public string Post(string URL, Headers Headers = null, string Body = "", HttpProxyClient Proxy = null)
+        public string Post(string URL, Headers Headers = null, string Body = "", IProxyClient Proxy = null)
         {
             if (string.IsNullOrWhiteSpace(URL))
             {
@@ -86,14 +72,14 @@ namespace TCPRequest
             return CreateRequest("GET", URL, Headers, null, Proxy);
         }
 
-        private string CreateRequest(string Method, string URL, Headers Headers = null, string Body= "", IProxyClient Proxy = null)
+        private string CreateRequest(string Method, string URL, Headers Headers = null, string Body = "", IProxyClient Proxy = null)
         {
             System.Net.ServicePointManager.SecurityProtocol = (SecurityProtocolType)(3072 | 768 | 192);
 
             Uri urlRequest = new Uri(URL);
             // Connect socket
 
-            if (Proxy !=null)
+            if (Proxy != null)
             {
                 client = Proxy.CreateConnection(urlRequest.Host, urlRequest.Port);
             }
@@ -101,7 +87,7 @@ namespace TCPRequest
             {
                 client.Connect(urlRequest.Host, urlRequest.Port);
             }
-            
+
             if (!NoDelay)
             {
                 NoDelay = false;
@@ -133,7 +119,7 @@ namespace TCPRequest
                 builder.Append(Headers.headersHandler);
             }
 
-           if (Body != null)
+            if (Body != null)
             {
                 builder.AppendLine("Content-Length: " + Body.Length);
             }
@@ -151,7 +137,7 @@ namespace TCPRequest
                 builder.AppendLine("Connection: close");
             }
             builder.AppendLine();
-           if (Body != null)
+            if (Body != null)
             {
                 builder.AppendLine(Body);
             }
@@ -166,7 +152,7 @@ namespace TCPRequest
         }
 
         public void Dispose()
-        { 
+        {
             client.Dispose();
         }
     }
@@ -180,10 +166,11 @@ namespace TCPRequest
         public string Origin = String.Empty;
         public string AcceptLanguage = "en-US,en;";
         public string AcceptEncoding = "identify";
-        private string[] BlockedHeaders = { "content-type", "user-agent","accept","referer","origin","accept-language","acceptencoding" };
+        private string[] BlockedHeaders = { "content-type", "user-agent", "accept", "referer", "origin", "accept-language", "acceptencoding" };
         public void Add(string Name, string Value)
         {
-            if (BlockedHeaders.Contains(Name.ToLower())) {
+            if (BlockedHeaders.Contains(Name.ToLower()))
+            {
                 throw new ArgumentNullException($"Blocked header, you need to add it like this ({Name.ToLower()}.{Name})");
             }
             headersHandler.AppendLine($"{Name}: {Value}");
