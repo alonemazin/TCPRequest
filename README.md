@@ -2,7 +2,7 @@
 # TCPRequest
 
 A simple library to make some request directly to (TCP Client) in easy way
-writed with C# in .NET CORE 6
+writed with C# in .NET CORE 6 and NetFramework4.8
 
 ## Authors
 
