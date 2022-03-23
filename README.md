@@ -70,10 +70,10 @@ headers.ContentType = "application/json";
 string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.HttpsProxy("ip:port", "Username <!if Exist>", "Password <!if Exist>"));
 
 // Socks4
-string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.Socks4Proxy("ip:port", "Username <!if Exist>", "Password <!if Exist>"));
+string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.Socks4Proxy("ip:port"));
 
 // Socks4a
-string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.Socks4aProxy("ip:port", "Username <!if Exist>", "Password <!if Exist>"));
+string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.Socks4aProxy("ip:port"));
 
 // Socks5
 string response = request.Get("https://alonemazin.online/", headers, Data, TCPRequest.Proxy.Socks5Proxy("ip:port", "Username <!if Exist>", "Password <!if Exist>"));
@@ -88,7 +88,7 @@ headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36";
 headers.ContentType = "application/json";
 
 // Https
-string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.HttpsProxy("ip:port"));
+string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.HttpsProxy("ip:port", "Username <!if Exist>", "Password <!if Exist>"));
 
 // Socks4
 string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.Socks4Proxy("ip:port"));
@@ -97,7 +97,7 @@ string response = request.Get("https://alonemazin.online/", headers, TCPRequest.
 string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.Socks4aProxy("ip:port"));
 
 // Socks5
-string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.Socks5Proxy("ip:port"));
+string response = request.Get("https://alonemazin.online/", headers, TCPRequest.Proxy.Socks5Proxy("ip:port", "Username <!if Exist>", "Password <!if Exist>"));
 ```
 How To Add Headers C#
 ```csharp
