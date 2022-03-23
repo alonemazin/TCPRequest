@@ -110,14 +110,14 @@ headers.add("name" , "value");
 string response = request.Post("https://alonemazin.online/", headers, data);
 ```
 How To Add Headers VB.net
-```csharp
-TCPRequest.HttpRequest request = new TCPRequest.HttpRequest()
-TCPRequest.Headers headers = new TCPRequest.Headers()
+```vb
+Dim request As TCPRequest.HttpRequest = New TCPRequest.HttpRequest()
+Dim headers As TCPRequest.Headers = New TCPRequest.Headers()
 headers.Accept = "*/*"
 headers.UserAgent = "Chrome/51.0.2704.103 Safari/537.36"
 headers.ContentType = "application/json"
 headers.add("name" , "value")
-string response = request.Post("https://alonemazin.online/", headers, data)
+Dim response As String = request.Post("https://alonemazin.online/", headers, data)
 ```
 ## FAQ
 
